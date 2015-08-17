@@ -6,14 +6,21 @@
 	<link rel="stylesheet" type="text/css" href="style.css">
 	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.16/angular.min.js" type="text/javascript"></script>
 </head>
-<body ng-controller="MultiplicationCtrl">
-	<table>
-		<tr ng-repeat="numA in numbers">
-			<td ng-repeat="numB in numbers">
-				{{numA * numB}}
-			</td>
-		</tr>
-	</table>
+<body ng-controller="MultiplicationCtrl" inital-number-limit="10">
+	<div>
+		<div class="numWrap">
+			<input type="number" ng-model="numberLimit"placeholder="Enter a number"/>
+		</div>
+		
+		<table>
+			<tr ng-repeat="numA in numbers()">
+				<td ng-repeat="numB in numbers()">
+					{{compute(numA, numB)}}
+				</td>
+			</tr>
+		</table>
+	</div>
+	
 	<script type="text/javascript" src="script.js"></script>
 </body>
 </html>
